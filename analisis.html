@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+<script src="css/phonegap-1.4.1.js" type="text/javascript"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" rel="stylesheet" type="text/css"/>
+<script src="http://code.jquery.com/jquery-1.6.4.min.js" type="text/javascript"></script>
+<script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js" type="text/javascript"></script>
+
+<script>
+
+
+   
+        var nominaMensual  = localStorage.getItem('nominaMensual');
+        document.write("Tu nomina es: "+ nominaMensual);
+   
+</script>
+
+<script>
+$(document).ready(function() {
+var nominaMensual=0; var otrosIngresos=0; var importeDeudas=0; var totalGastosMes=0; var endeudamiento=0;
+var nivelEndeudamiento;
+var nivelDeuda;
+var porEndeudamiento=0;
+nominaMensual  = parseInt(localStorage.getItem('nominaMensual'));
+otrosIngresos  = parseInt(localStorage.getItem('otrosIngresos'));
+importeDeudas  = parseInt(localStorage.getItem('importeDeudas'));
+totalGastosMes  = parseInt(localStorage.getItem('totalGastosMes'));
+endeudamiento  = ((nominaMensual+otrosIngresos)*35/100);
+porEndeudamiento= ((importeDeudas/(nominaMensual+otrosIngresos))*100);
+
+
+	 if(porEndeudamiento<15)
+	 {
+		nivelDeuda="inferior";
+		nivelEndeudamiento="bajo";
+	 }
+	 else if ((porEndeudamiento)>15 || (porEndeudamiento)<35)
+	 {
+		nivelDeuda="inferior";
+		nivelEndeudamiento="aceptable";
+	 }
+	 else if ((porEndeudamiento)>35 || (porEndeudamiento)<40)
+	 {
+		nivelDeuda="superior";
+		nivelEndeudamiento="un poco alto para sus ingresos y puede tener dificultades si pide más prestamos.";
+	 }
+	 else(porEndeudamiento>40)
+	 {
+		nivelDeuda="muy superior";
+		nivelEndeudamiento="por encima de lo normal y puede estar pasando por dificultades en estos momentos. Le recomendamos una reestructuracion de su deuda, ampliando plazos, etc. ";
+	 }
+	 
+	 
+	 
+	$("#capa0").replaceWith("nominalMensual:"+nominalMensual+ " otrosIngresos:"+otrosIngresos+"importeDeudas:"+importeDeudas+" totalGastosMes"+ "endeudamiento:"+endeudamiento+" porEndeudamiento:"+porEndeudamiento);
+	
+        $("#capa1").replaceWith("Normalmente las entidades financieras le admiten, y hoy mas que nunca, hasta un 35% o 40% de endeudamiento en el que se incluye el endeudamiento actual.");
+		
+		$("#capa2").replaceWith("Actualmente usted puede gastar hasta "+ endeudamiento + " Euros en sus prestamos  de coche, casa, tarjetas, deudas con centros comerciales, etc.Y lo que gasta actualmente en prestamos es "+ importeDeudas +".");
+		
+		$("#capa3").replaceWith("Su deuda es "+nivelDeuda+" a su nivel de endeudamiento. Por lo tanto, tiene un nivel de deuda "+nivelEndeudamiento); 
+		
+});
+</script>
+
+
+ 
+
+</head>
+
+<body>
+<div data-role="page" id="page">
+  <div data-role="header">
+    <h1>Encabezado</h1>
+  </div>
+  
+  
+ 
+  
+  <div data-role="content" data-theme="a">
+  	<h6>contenido</h6>
+  
+  	<div id="capa0">
+    contenido
+    </div>
+    <div id="capa1">
+    contenido
+    </div>
+    <div id="capa2">
+    contenido
+    </div>
+    <div id="capa3">
+    contenido
+    </div>
+    
+    
+  
+  
+  
+  
+  </div>
+   
+  
+  
+  
+  
+  
+  <div data-role="footer">
+    <h4>Pie</h4>
+  </div>
+</div>
+
+
+</body>
+</html>
