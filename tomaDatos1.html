@@ -12,10 +12,10 @@
 
 <script type="text/javascript">
 
-   		$('#page').live('pageinit', function(event) {
-$('#commentform').submit(function() {
+   		
+$('#formulario').submit(function() {
 
-
+navigator.notification.alert("Hemos tomado los datos.");
 			//function salvar(){
 			
 			var nominaMensual = $('#nominaMensual').val();
@@ -28,9 +28,12 @@ $('#commentform').submit(function() {
 			localStorage.setItem('totalGastosMes',totalGastosMes);
 			window.open("analisis.html");
 			self.close("index.html");
+			
+
+
 			//}
 			
-});
+
 });
    
 
@@ -43,7 +46,7 @@ $('#commentform').submit(function() {
     <h1>Encabezado</h1>
   </div>
  <div data-role='content' data-theme="a">
-<form id='commentform' action='#' method='post'>
+<form id="formulario" action="analisis.html">
 <label for="nominaMensual">Nomina mensual: </label>
    			<table>
       			<tr>
@@ -77,7 +80,7 @@ $('#commentform').submit(function() {
     		</table> 
          <br> 
 
-<input type="submit" onClick="analisis.html" id="salvar" name="salvar"    value="Aceptar">
+<input type="submit"  id="salvar" name="salvar"    value="Aceptar">
 </form>
 	</div>
     
