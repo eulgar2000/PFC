@@ -1,86 +1,72 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>Documento sin título</title>
-<script src="css/phonegap-1.4.1.js" type="text/javascript"></script>
+    <title>jQuery Mobile local storage demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.css"/>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.js"></script>
+    <script type="text/javascript" src="http://www.modernizr.com/downloads/modernizr-latest.js"></script>
+    <style>
+        #message {
+            display: none;
+            border-radius: 10px;
+            padding: 10px;
+            background-color: #ff0000;
+            color: #fff;
+        }
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="css/micss.css" rel="stylesheet" type="text/css"/>
-<link href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" rel="stylesheet" type="text/css"/>
+        #storageDemoPage h2 {
+            white-space: normal;
+        }
+    </style>
+    <script type="text/javascript">
+        var localStorageKey = "demoStorageKey";
+        $('#storageDemoPage').live('pagecreate', function() {
+            if (Modernizr.localstorage) {
+                showStoreValue();
+            }
+            else {
+                $('#message').text("Unfortunately your browser doesn't support local storage");
+                $('#addToStorage').attr('disabled', 'disabled');
+                $('#message').show();
+            }
+            $('#addToStorage').click(function(e) {
+                localStorage.setItem(localStorageKey, $('#entry').val());
+                showStoreValue();
+                e.preventDefault();
+            });
+        });
 
-<script src="http://code.jquery.com/jquery-1.6.4.min.js" type="text/javascript"></script>
-<script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js" type="text/javascript"></script>
-
-<title>logotipoPortada</title>
-<style type = "text/css">
-	table, td, th { border: 0px;} 
-</style>
-
-
+        function showStoreValue() {
+            var item = localStorage.getItem(localStorageKey);
+            if (item == null) {
+                item = 'Nothing in store';
+            }
+            else if (item.length === 0) {
+                item = 'Store contains empty value';
+            }
+            $('.storeItem').text(item);
+        }
+    </script>
 </head>
-
-<body> 
-
-<!-- *********************************    PAGINA DE INICIO    *************************************************-->
-
-<div data-role="page" id="page" data-theme="b">
-	<div data-role="header">
-		<img src="Imagenes/LogoOriginalMejorado2.png" alt="logotipo">
-	</div>
-	<div data-role="content">
-    	
-        <div data-role="controlgroup" data-type="vertical">
-        <h4>Qué desea hacer</h4>
-        <br>
-        <br>
-            <a href="tomaDatos1.html" data-role="button">Pagar menos prestamo</a>
-            <a href="tomaDatos1.html" data-role="button">Calculo gastos de nueva hipoteca</a>
-            <a href="tomaDatos1.html" data-role="button">Conocer el mejor deposito</a>
-        </div>
-        
-	</div>
-	<div data-role="footer" data-theme="b" data-position="fixed">
-    <h6>JVG-UOC-ITIG</h6>
-	</div>
-</div>
-
-
-
-
-
-
-
-
-
+<body>
+<section data-role="page" id="storageDemoPage">
+    <section data-role="header">
+        <h2>jQuery Mobile local storage demo</h2>
+    </section>
+    <section data-role="content">
+        <p id="message"/>
+        <ul data-role="listview" data-inset="true">
+            <li data-role="list-divider">Enter text to store</li>
+            <li>
+                <input type="text" id="entry" name="entry" placeholder="Enter text to store"/>
+                <input type="button" id="addToStorage" value="Add to local storage"/>
+            </li>
+            <li data-role="list-divider">Item in store</li>
+            <li class="storeItem"/>
+        </ul>
+    </section>
+</section>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
