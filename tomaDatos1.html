@@ -15,7 +15,7 @@
 </head>
 <body>
  
- <div data-role="page" id="pagina1">
+<div data-role="page" id="pagina1">
  	  <div data-role="header">  
         <h1>Toma de datos</h1>
       </div>
@@ -58,12 +58,12 @@
       </div>
  </div>
  
- <div data-role="page" id="analisis" data-theme="a">
+<div data-role="page" id="analisis" data-theme="a">
   <div data-role="header">
     <h1>Analisis</h1>
   </div>
   
-  <div id="paginaDeContenido" data-role="content">
+  <div data-role="content">
   
       <div id="capa1">
       <p>Contenido no cargado</p>
@@ -126,30 +126,14 @@ $("#aceptar").bind("click", function (event)
 			var sql = "INSERT INTO ingresosgastos (nomina,ingresos,deudas,gastosMes) VALUES (?,?,?,?)";
 			transaction.executeSql (sql, [nomina,ingresos,deudas,gastosMes], function ()
 			{
-			  window.open('analisis.html', 'ventana-analisis');
+			 
 			  self.close('tomaDatos1.html');
 			}, error);
 	});
  
-});
 
-$("#remove").bind ("click", function (event)
-{
-  if (!confirm ("Delete table?", "")) return;;
-  db.transaction (function (transaction) 
-  {
-    var sql = "DROP TABLE ingresosgastos";
-    transaction.executeSql (sql, undefined, ok, error);
-  });
-});
-function ok (){}
-function error (transaction, err) 
-{
-  //alert ("DB error : " + err.message);
-  return false;
-}
 
-$(document).ready(function ()
+$('#analisis').bind( "pageshow", function ()
   {
   	var db = openDatabase ("IG", "1.0", "Ingreos y gastos", 65535);
 	
@@ -161,6 +145,7 @@ $(document).ready(function ()
     {
       if (result.rows.length)
       {
+		 
         for (var i = 0; i < result.rows.length; i++) 
         {
           var row = result.rows.item(i);
@@ -168,11 +153,12 @@ $(document).ready(function ()
           ingresos = row.ingresos;
 		  deudas= row.deudas;
 		  gastosMes=row.gastosMes;
-		  endeuda= Number((nomina)+(ingresos));
+		  endeuda= Number(nomina)+ Number(ingresos);
 		  porEndeuda= Number((deudas/(endeuda))*100).toFixed(0);
 		  nivelDeuda="XXX";
 		  nivelEndeudamiento="XXX";
 		  texto="XXX";
+		 
 			 if(porEndeuda<15)
 			 {
 				nivelDeuda="inferior";
@@ -198,16 +184,37 @@ $(document).ready(function ()
 				texto="Ante su nivel de endeudamiento, podemos ayudarle a pagar menos por sus cuotas mensualmente(prestamos, tarjetas, etc). Si lo desea pulse ACEPTAR";
 			}
 		
-		
 		$('#capa1').text("Normalmente las entidades financieras le admiten, y hoy mas que nunca, hasta un 35% o 40% de endeudamiento en el que se incluyen las deudas actuales. Usted tiene actualmente un endeudamiento de un "+(porEndeuda)+"%.").css("font-size","small");
 		$('#capa2').text("Actualmente usted puede gastar hasta "+ ((endeuda*.35).toFixed(0)) + " Euros en sus prestamos de coche, casa, tarjetas, deudas con centros comerciales, etc. Y lo que usa actualmente en prestamos es "+ deudas +".").css("font-size","small");
 		$('#capa3').text("Su deuda es "+nivelDeuda+" a su nivel de endeudamiento. Por lo tanto, tiene un nivel de deuda "+nivelEndeudamiento+ ".").css("font-size","small");
 		$('#capa4').text(texto).css("font-size","small");
+		
+	 window.open('#analisis', 'ventana-analisis');	
+		
         }
       }
 	});
   });
 });
+
+});
+
+
+$("#remove").bind ("click", function (event)
+{
+  if (!confirm ("Delete table?", "")) return;
+  db.transaction (function (transaction) 
+  {
+    var sql = "DROP TABLE ingresosgastos";
+    transaction.executeSql (sql, undefined, ok, error);
+  });
+});
+function ok (){}
+function error (transaction, err) 
+{
+  //alert ("DB error : " + err.message);
+  return false;
+}
   </script>
 
 
