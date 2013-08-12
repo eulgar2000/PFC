@@ -92,10 +92,11 @@
 </html>
 
 <script>
-var db = openDatabase ("IG", "1.0", "Ingreos y gastos", 65535);
+
 
 $("#aceptar").bind("click", function (event)
 {
+	var db = openDatabase ("IG", "1.0", "Ingreos y gastos", 65535);
 	
 	db.transaction (function (transaction) 
 	{
