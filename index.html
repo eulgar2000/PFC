@@ -50,9 +50,9 @@
       			</tr>    
     		</table> 
       
-        <a href="#"  data-role="button" id="aceptar">Enviar datos</a>
+        <a href=#  data-role="button" id="aceptar">Enviar datos</a>
         <a href="#analisis"  data-role="button" id="analizar">Analizar datos</a>
-        <a href="#"  data-role="button" id="remove"> Borrar datos </a>
+        <a href=#  data-role="button" id="remove"> Borrar datos </a>
       </div>
       <div data-role="footer">
         <h1>Toma de datos</h1>
@@ -92,7 +92,7 @@
 </html>
 
 <script>
-
+var db = openDatabase ("IG", "1.0", "Ingreos y gastos", 65535);
 
 $("#aceptar").bind("click", function (event)
 {
