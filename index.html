@@ -50,9 +50,9 @@
       			</tr>    
     		</table> 
       
-        <a href=#  data-role="button" id="aceptar">Enviar datos</a>
-        <a href=#  data-role="button" id="analizar_datos">Analizar datos</a>
-        <a href=#  data-role="button" id="remove"> Borrar datos </a>
+        <a href="#" onClick="aceptar()" data-role="button" id="aceptar">Enviar datos</a>
+        <a href="#" onClick="analizar_datos()" data-role="button" id="analizar_datos">Analizar datos</a>
+        <a href="#" onClick="remove()"  data-role="button" id="remove"> Borrar datos </a>
       </div>
       <div data-role="footer">
         <h1>Toma de datos</h1>
@@ -94,7 +94,8 @@
 <script>
 var db = openDatabase ("IG", "1.0", "Ingreos y gastos", 65535);
 
-$("#aceptar").bind("click", function (event)
+//$("#aceptar").bind("click", function (event)
+function aceptar()
 {
 	var db = openDatabase ("IG", "1.0", "Ingreos y gastos", 65535);
 	
@@ -109,7 +110,7 @@ $("#aceptar").bind("click", function (event)
                
 			transaction.executeSql (sql, undefined, function ()
 			{ 
-			  alert ("Tabla creada");
+			  alert("Tabla creada");
 			}, error);
     });
 	
@@ -141,10 +142,11 @@ $("#aceptar").bind("click", function (event)
 		      }			
 	    });			
       });
-});
+}//);
 
 
-$('#analizar_datos').bind("click", function (event)
+//$('#analizar_datos').bind("click", function (event)
+function analizar_datos()
   {
   	//var db = openDatabase ("IG", "1.0", "Ingreos y gastos", 65535);
 	
@@ -214,7 +216,7 @@ $('#analizar_datos').bind("click", function (event)
 	  
 	  
 	  
-});
+}//);
 
 
 
