@@ -50,9 +50,10 @@
       			</tr>    
     		</table> 
       
-        <a href="#"  data-role="button" id="aceptar">Enviar datos</a>
-        <a href="#"  data-role="button" id="analizar_datos">Analizar datos</a>
-        <a href="#"  data-role="button" id="remove"> Borrar datos </a>
+        <a href=#  data-role=button id=aceptar>Enviar datos</a>
+        <a href=#  data-role=button id=analizar_datos>Analizar datos</a>
+        <a href=#  data-role=button id=remove> Borrar datos </a>
+        
       </div>
       <div data-role="footer">
         <h1>Toma de datos</h1>
@@ -95,15 +96,10 @@
 
 var db = openDatabase ("IG", "1.0", "Ingreos y gastos", 65535);
 
-$(document).ready( function(){
+
 
 $("#aceptar").on("click", function (event)
-
-
-//function aceptar()
 {
-	var db = openDatabase ("IG", "1.0", "Ingreos y gastos", 65535);
-	
 	db.transaction (function (transaction) 
 	{
 			var sql = "CREATE TABLE ingresosgastos " +
@@ -150,11 +146,10 @@ $("#aceptar").on("click", function (event)
 });
 
 
-$('#analizar_datos').on("click", function (event)
-//function analizar_datos()
+$("#analizar_datos").on("click", function (event)
   {
-  	//var db = openDatabase ("IG", "1.0", "Ingreos y gastos", 65535);
-	
+	$.mobile.changePage($("#analisis"));
+	  
 	$("#analisis").on("pageshow", function(){
 	
 		db.transaction (function (transaction) 
@@ -217,7 +212,7 @@ $('#analizar_datos').on("click", function (event)
       });
 	  
 	  
-	  $.mobile.changePage($("#analisis"));
+	 // $.mobile.changePage($("#analisis"));
 	  
 	  
 	  
@@ -229,11 +224,7 @@ $('#analizar_datos').on("click", function (event)
 
 
 $("#remove").on("click", function (event)
-//function remove()
 {
-	
-	var db = openDatabase ("Test", "1.0", "Test", 65535);
-	
   if (!confirm ("Delete table?", "")) return;
   db.transaction (function (transaction) 
   {
@@ -244,10 +235,9 @@ $("#remove").on("click", function (event)
 function ok (){}
 function error (transaction, err) 
 {
-  //alert ("DB error : " + err.message);
   return false;
 }
-});
+
 
   </script>
 
