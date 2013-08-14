@@ -12,82 +12,6 @@
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
 
-</head>
-<body>
- 
-<div data-role="page" id="pagina1">
- 	  <div data-role="header">  
-        <h1>Toma de datos</h1>
-      </div>
-      <div data-role="content">
-     
-        <span>Nomina mensual: </span>
-   			<table>
-      			<tr>
-        			<td><input type="number"  value="" id="nominaMensual" name="nominaMensual" class="localStorage"></td>
-        			<td><a href="popUp.html" data-rel="dialog" data-role="button" data-transition="pop">?</a></td>
-      			</tr>    
-    		</table>  
-		<span>Otros ingresos: </span>
-        <table>
-      			<tr>
-        			<td><input type="number" value="" id="otrosIngresos" name="otrosIngresos" ></td>
-        			<td><a href="popUp1.html" data-rel="dialog" data-role="button" data-transition="pop">?</a></td>
-      			</tr>    
-    		</table> 		
-		<span>Importe de sus deudas: </span>
-        <table>
-      			<tr>
-        			<td><input type="number" value="" id="importeDeudas" name="importeDeudas"></td>
-        			<td><a href="popUp3.html" data-rel="dialog" data-role="button" data-transition="pop">?</a></td>
-      			</tr>    
-    		</table>          
-         <span>Total de gastos mensuales: </span>
-        <table>
-      			<tr>
-        			<td><input type="number" value="" id="totalGastosMes" name="totalGastosMes"></td>
-        			<td><a href="popUp2.html" data-rel="dialog" data-role="button" data-transition="pop">?</a></td>
-      			</tr>    
-    		</table> 
-      
-        <a href=#  data-role=button id=aceptar>Enviar datos</a>
-        <a href=#  data-role=button id=analizar_datos>Analizar datos</a>
-        <a href=#  data-role=button id=remove> Borrar datos </a>
-        
-      </div>
-      <div data-role="footer">
-        <h1>Toma de datos</h1>
-      </div>
- </div>
- 
-<div data-role="page" id="analisis" data-theme="a">
-  <div data-role="header">
-    <h1>Analisis</h1>
-  </div>
-  
-  <div data-role="content">
-  
-      <div id="capa1">
-      <p>Contenido no cargado</p>
-      </div>
-      
-      <div id="capa2">
-      <p>Contenido no cargado</p>
-      </div>
-      
-      <div id="capa3">
-      <p>Contenido no cargado</p>
-      </div>
-      
-      <div id="capa4">
-      <p>Contenido no cargado</p>
-      </div>
- </div>
-  
-  <div data-role="footer">
-    <h4>JVG-UOC-ITIG</h4>
-  </div>
-</div>
 <script>
 
 var db = openDatabase ("IG", "1.0", "Ingreos y gastos", 65535);
@@ -238,6 +162,88 @@ function error (transaction, err)
 
 });
   </script>
+
+
+
+
+
+
+</head>
+<body>
+ 
+<div data-role="page" id="pagina1">
+ 	  <div data-role="header">  
+        <h1>Toma de datos</h1>
+      </div>
+      <div data-role="content">
+     
+        <span>Nomina mensual: </span>
+   			<table>
+      			<tr>
+        			<td><input type="number"  value="" id="nominaMensual" name="nominaMensual" class="localStorage"></td>
+        			<td><a href="popUp.html" data-rel="dialog" data-role="button" data-transition="pop">?</a></td>
+      			</tr>    
+    		</table>  
+		<span>Otros ingresos: </span>
+        <table>
+      			<tr>
+        			<td><input type="number" value="" id="otrosIngresos" name="otrosIngresos" ></td>
+        			<td><a href="popUp1.html" data-rel="dialog" data-role="button" data-transition="pop">?</a></td>
+      			</tr>    
+    		</table> 		
+		<span>Importe de sus deudas: </span>
+        <table>
+      			<tr>
+        			<td><input type="number" value="" id="importeDeudas" name="importeDeudas"></td>
+        			<td><a href="popUp3.html" data-rel="dialog" data-role="button" data-transition="pop">?</a></td>
+      			</tr>    
+    		</table>          
+         <span>Total de gastos mensuales: </span>
+        <table>
+      			<tr>
+        			<td><input type="number" value="" id="totalGastosMes" name="totalGastosMes"></td>
+        			<td><a href="popUp2.html" data-rel="dialog" data-role="button" data-transition="pop">?</a></td>
+      			</tr>    
+    		</table> 
+      
+        <a href=#  data-role=button id=aceptar>Enviar datos</a>
+        <a href=#  data-role=button id=analizar_datos>Analizar datos</a>
+        <a href=#  data-role=button id=remove> Borrar datos </a>
+        
+      </div>
+      <div data-role="footer">
+        <h1>Toma de datos</h1>
+      </div>
+ </div>
+ 
+<div data-role="page" id="analisis" data-theme="a">
+  <div data-role="header">
+    <h1>Analisis</h1>
+  </div>
+  
+  <div data-role="content">
+  
+      <div id="capa1">
+      <p>Contenido no cargado</p>
+      </div>
+      
+      <div id="capa2">
+      <p>Contenido no cargado</p>
+      </div>
+      
+      <div id="capa3">
+      <p>Contenido no cargado</p>
+      </div>
+      
+      <div id="capa4">
+      <p>Contenido no cargado</p>
+      </div>
+ </div>
+  
+  <div data-role="footer">
+    <h4>JVG-UOC-ITIG</h4>
+  </div>
+</div>
 
 
 
