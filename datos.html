@@ -16,6 +16,11 @@
 
 
 $(document).ready (function(){
+	
+/*$width = $('#contenido').width();
+    $('#contenido img').css({
+	    'background-image':'Imagenes/FondoInicial.jpg','max-width' : $width , 'height' : 'auto'
+	 });*/	
 
 var db = openDatabase ("IG", "1.0", "Ingreos y gastos", 65535);
 
@@ -170,8 +175,27 @@ function error (transaction, err)
 
 </head>
 <body>
+<!--div data-role="page" id="inicio">
+	    <div id="contenido">
+		
+		<img src="Imagenes/FondoInicial.jpg" alt="Pagar menos prestamo">
+        <a href="#tomadatos" data-role="button">Pagar menos prestamo</a>
+        
+		</div>
+	</div-->
+
+
+
+
+
+
+
+
+
+
+
  
-<div data-role="page" id="pagina1">
+<div data-role="page" id="tomadatos">
  	  <div data-role="header">  
         <h1>Toma de datos</h1>
       </div>
