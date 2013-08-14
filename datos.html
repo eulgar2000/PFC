@@ -14,17 +14,17 @@
 
 <script>
 
-var db = openDatabase ("IG", "1.0", "Ingreos y gastos", 65535);
+
 $(document).ready (function(){
 
-
+var db = openDatabase ("IG", "1.0", "Ingreos y gastos", 65535);
 
 
 $("#aceptar").on("click", function (event)
 {
 	db.transaction (function (transaction) 
 	{
-			var sql = "CREATE TABLE ingresosgastos " +
+			var sql = "CREATE TABLE ingresosgastos IF NOS EXISTS " +
 				" (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, " +
 				"nomina INTEGER, " +
 				"ingresos INTEGER, " +

@@ -17,11 +17,34 @@
 </style-->
 <script>
 $(document).ready(function() {
+	
+	var db = openDatabase ("IG", "1.0", "Ingreos y gastos", 65535);
+	db.transaction (function (transaction) 
+	{
+			var sql = "CREATE TABLE ingresosgastos IF NOS EXISTS " +
+				" (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, " +
+				"nomina INTEGER, " +
+				"ingresos INTEGER, " +
+				"deudas INTEGER, " +				 
+				"gastosMes INTEGER )"
+               
+			transaction.executeSql (sql, undefined, function ()
+			{ 
+			  alert("Tabla creada");
+			}, error);
+    });
+	
 
 $width = $('#content').width();
     $('#content img').css({
 	    'max-width' : $width , 'height' : 'auto'
 	 });
+	 
+	 
+	 
+	 
+	 
+	 
 $("#mapa").on("click", function(){
 	
 	$.mobile.changePage("datos.html");
