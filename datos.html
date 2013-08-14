@@ -93,7 +93,7 @@
 </html>
 
 <script>
-
+$(document).ready (function(){
 var db = openDatabase ("IG", "1.0", "Ingreos y gastos", 65535);
 
 
@@ -238,7 +238,7 @@ function error (transaction, err)
   return false;
 }
 
-
+});
   </script>
 
 
