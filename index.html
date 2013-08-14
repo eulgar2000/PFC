@@ -35,21 +35,21 @@ $(document).ready(function() {
     });
 	
 
-$width = $('#content').width();
+/*$width = $('#content').width();
     $('#content img').css({
 	    'max-width' : $width , 'height' : 'auto'
-	 });
+	 });*/
 	 
 	 
 	 
 	 
 	 
 	 
-$("#mapa").on("click", function(){
+/*$("#mapa").on("click", function(){
 	
 	$.mobile.changePage("datos.html");
 	
-	});
+	});*/
        
        
     });
@@ -65,16 +65,7 @@ $("#mapa").on("click", function(){
 
 
 
-	<div id="wrapper">
-	    <div id="content">
-		
-		<img src="Imagenes/FondoInicial.jpg" alt="Pagar menos prestamo"  id="mapa" usemap="#Map">
-        <map name="PagarMenosPrestamo">
-          
-          <area shape="circle" coords="228,287,62" >
-        </map>
-		</div>
-	</div>
+	
 
 
 
@@ -86,6 +77,37 @@ $("#mapa").on("click", function(){
 </head>
 
 <body> 
+<!--div id="wrapper">
+	    <div id="content">
+		
+		<img src="Imagenes/FondoInicial.jpg" alt="Pagar menos prestamo"  id="mapa" usemap="#Map">
+        <map name="PagarMenosPrestamo">
+          
+          <area href="datos.html" shape="circle" coords="228,287,62" >
+        </map>
+		</div>
+	</div-->
+<div data-role="page" id="page">
+  <div data-role="header">
+    <h1>Encabezado</h1>
+  </div>
+  <div data-role="content">
+  
+  <a href="datos.html" data-role="button">Pagar menos prestamo</a>
+  
+  Contenido</div>
+  <div data-role="footer">
+    <h4>Pie</h4>
+  </div>
+</div>
+
+
+
+
+
+
+
+
 
 
 
