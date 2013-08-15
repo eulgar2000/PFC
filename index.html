@@ -18,7 +18,7 @@
 <script>
 $(document).ready(function() {
 	
-	var db = openDatabase ("IG", "1.0", "Ingreos y gastos", 65535);
+	/*var db = openDatabase ("IG", "1.0", "Ingreos y gastos", 65535);
 	db.transaction (function (transaction) 
 	{
 			var sql = "CREATE TABLE ingresosgastos IF NOS EXISTS " +
@@ -32,21 +32,24 @@ $(document).ready(function() {
 			{ 
 			  alert("Tabla creada");
 			}, error);
-    });
+    });*/
 	
 
-/*
+$width = $('#contenido').width();
+    $('#contenido img').css({
+	    'background-image':'Imagenes/FondoInicial.jpg','max-width' : $width , 'height' : 'auto'
+	 });
 	 
 	 
 	 
 	 
 	 
 	 
-/*$("#mapa").on("click", function(){
+$("#mapa").on("click", function(){
 	
 	$.mobile.changePage("datos.html");
 	
-	});*/
+	});
        
        
     });
@@ -74,17 +77,17 @@ $(document).ready(function() {
 </head>
 
 <body> 
-<!--div id="wrapper">
-	    <div id="content">
+<div id="wrapper">
+	    <div id="contenido">
 		
 		<img src="Imagenes/FondoInicial.jpg" alt="Pagar menos prestamo"  id="mapa" usemap="#Map">
         <map name="PagarMenosPrestamo">
           
-          <area href="datos.html" shape="circle" coords="228,287,62" >
+          <area href="datos.html" rel="external" shape="circle" coords="228,287,62" >
         </map>
 		</div>
-	</div-->
-<div data-role="page" id="page">
+	</div>
+<!--div data-role="page" id="page">
   <div data-role="header">
     <h1>Encabezado</h1>
   </div>
@@ -96,7 +99,7 @@ $(document).ready(function() {
   <div data-role="footer">
     <h4>Pie</h4>
   </div>
-</div>
+</div-->
 
 
 
