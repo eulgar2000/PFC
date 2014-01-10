@@ -13,62 +13,28 @@
 
 <title>logotipoPortada</title>
 
-<script>
-$(document).ready(function() {
-
-		$width = $('#contenido').width();
-		$('#contenido img').css({
-			'background-image':'Imagenes/FondoInicial.jpg','max-width' : $width , 'height' : 'auto'
-		 });
-		
-		$("#mapa").on("click", function(){
-		
-		$.mobile.changePage("datos.html");
-		
-		});    
-});
-</script>
-
-</head>
-
-<body> 
-<div id="wrapper">
-	    <div id="contenido">
-            <img src="Imagenes/FondoInicial.jpg" alt="Pagar menos prestamo"  id="mapa" usemap="#Map">
-            <map name="PagarMenosPrestamo">
-              <area href="datos.html" rel="external" shape="circle" coords="228,287,62" >
-            </map>
-		</div>
+<body>
+<div data-role="page" id="page">
+  <div data-role="header">
+    <h1>Encabezado</h1>
+  </div>
+ 
+    <div data-role="content">
+ <img src="https://dl.dropboxusercontent.com/u/144916658/2014-01-02%2019.18.54.jpg" height="64" />
+  <p> </p>
+ <audio src="https://dl.dropboxusercontent.com/u/144916658/Till.mp3" preload="auto" controls></audio>
+ <p> </p>
+ <p>Esto es una imagen del Puerto de Málaga.</p>
+ Es un globo aeróstatico
+ 
+  <img src="Imagenes/2013-12-11 16.47.08.jpg" width="307"/>
+  
+  </div>
+  <div data-role="footer">
+    <h4>Pie</h4>
+  </div>
 </div>
+
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
