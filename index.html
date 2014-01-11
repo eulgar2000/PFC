@@ -1,6 +1,14 @@
 <!doctype html>
 <html>
 <head>
+<script src="audio/audio.min.js"></script>
+
+<script>
+  audiojs.events.ready(function() {
+    var as = audiojs.createAll();
+  });
+</script>
+
 <meta charset="utf-8">
 <title>Documento sin título</title>
 </head>
@@ -9,12 +17,18 @@
 <div>
  <img src="https://dl.dropboxusercontent.com/u/144916658/2014-01-02%2019.18.54.jpg" height="64" />
   <p> </p>
- <audio src="Imagenes/PruebaSonido.wav" preload="auto" controls></audio>
+
+
+ <audio preload="auto">
+      <source src="http://cdn02.cdn.gorillavsbear.net/wp-content/uploads/2010/11/gorilla-vs.-bear-november-2010.mp3" type="audio/mp3">
+      Tu navegador no soporta esta caracteristica
+ </audio>
  
- 
-<audio controls autoplay preload>
-<source src="Imagenes/PruebaSonido.wav" type="audio/wav" />
-Tu navegador no soporta esta caracteristica
+  <p> </p>
+  
+<audio preload="auto">
+    <source src="Imagenes/PruebaSonido.wav" type="audio/wav" />
+    Tu navegador no soporta esta caracteristica
 </audio>
  
  
