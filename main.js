@@ -3,10 +3,10 @@ $('#page-home').live('pageinit',function(){
 
     $("#playaudio").live('tap', function() {
         // Note: two ways to access media file: web and local file       
-        var src = 'http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3';
+        //var src = 'http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3';
        
         // local (on device): copy file to project's /assets folder:
-         //var src ="Imagenes/PruebaSonido.wav";
+         var src ="Imagenes/PruebaSonido.wav";
        
         playAudio(src);
     });
